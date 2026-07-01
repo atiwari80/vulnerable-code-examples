@@ -1,0 +1,29 @@
+name: Build C++
+
+on:
+  push:
+    paths:
+      - 'SAST/cpp/**'
+      - 'SAST/cpp/build.yml'
+  pull_request:
+    paths:
+      - 'SAST/cpp/**'
+      - 'SAST/cpp/build.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install compiler
+        run: sudo apt-get update && sudo apt-get install -y g++
+
+      - name: Compile C++ samples
+        run: |
+          mkdir -p build/cpp
+          g++ -std=c++17 -O2 -Wall -Wextra SAST/cpp/memset-delete.cpp -o build/cpp/memset-delete
+          g++ -std=c++17 -O2 -Wall -Wextra SAST/cpp/posix-buffer-overflow.cpp -o build/cpp/posix-buffer-overflow
+          g++ -std=c++17 -O2 -Wall -Wextra SAST/cpp/toctou.cpp -o build/cpp/toctou

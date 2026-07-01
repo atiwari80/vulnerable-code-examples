@@ -1,0 +1,31 @@
+name: Build TypeScript
+
+on:
+  push:
+    paths:
+      - 'SAST/typescript/**'
+      - 'SAST/typescript/build.yml'
+  pull_request:
+    paths:
+      - 'SAST/typescript/**'
+      - 'SAST/typescript/build.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install TypeScript compiler
+        run: npm install -g typescript
+
+      - name: Type-check TypeScript files
+        run: |
+          find SAST/typescript -name '*.ts' -o -name '*.js' | while read -r f; do tsc --noEmit "$f"; done

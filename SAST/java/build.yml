@@ -1,0 +1,30 @@
+name: Build Java
+
+on:
+  push:
+    paths:
+      - 'SAST/java/**'
+      - 'SAST/java/build.yml'
+  pull_request:
+    paths:
+      - 'SAST/java/**'
+      - 'SAST/java/build.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Compile Java sample
+        run: |
+          mkdir -p build/java
+          javac -d build/java SAST/java/sample.java

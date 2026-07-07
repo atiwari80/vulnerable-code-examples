@@ -1,4 +1,1 @@
-function addElement(&$array) { // %content%
-
-    $cmd = escapeshellarg($_GET['name']); // Changed: Add escapeshellarg for command injection vulnerability prevention
-    return $array; // %content%
+if ($_GET['input']) { $output = escapeshellarg($_GET['input']); echo $output; } else { echo "No input provided"; }

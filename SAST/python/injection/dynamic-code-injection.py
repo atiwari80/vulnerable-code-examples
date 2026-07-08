@@ -1,2 +1,1 @@
-8: command = \"ls -l\"
-9: os.system(command)
+8: from subprocess import run\n9: run(['ls', '-l'], capture_output=True)\n

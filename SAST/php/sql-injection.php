@@ -1,11 +1,11 @@
-<?php 
- // Fix the SQL injection vulnerability by using a prepared statement
-$stmt = $file_db->prepare("SELECT * FROM employees WHERE employeeId = :id");
-$stmt->bindParam('id', $_GET['id'], PDO::PARAM_INT);
-$stmt->execute();
 
-foreach ( $stmt->fetchAll() as $row ) {
-     $employee = $row[\'LastName\'] . " - " . $row[\'Email\'] . "\n";
-     
-     echo $employee;
-}
+5: $stmt->execute();
+6:
+7: foreach ( $stmt->fetchAll() as $row ) {
+8:      $employee = $row['LastName'] . " - " . $row['Email'] . "\n";
+9:      
+10: echo $employee;
+11: }
+12: 
+13: $db->close();
+14: 

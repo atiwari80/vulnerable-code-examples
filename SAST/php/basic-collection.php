@@ -1,5 +1,1 @@
-            $stmt = $mysqli->prepare('INSERT INTO collection (id, name, description) VALUES (?, ?, ?)');
-            $stmt->bind_param('sss', $id, $name, $description);
-            $stmt->execute();
-            $stmt->close();
-        
+$stmt = $mysqli->prepare('INSERT INTO collection (id, name, description) VALUES (?, ?, ?)');\n\t\t\t$stmt->bind_param('sss', $id, $name, $description);\n\t\t\t$stmt->execute();\n\t\t\t$stmt->close();

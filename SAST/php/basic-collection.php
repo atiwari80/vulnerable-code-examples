@@ -1,1 +1,3 @@
-mysql_query("SELECT user FROM users WHERE id = ") or die (mysql_error());
+/** 
+ * Use prepared statements to prevent SQL injection 
+ */

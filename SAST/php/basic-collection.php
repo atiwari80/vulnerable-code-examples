@@ -1,4 +1,5 @@
 $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-$statement = $mysqli->prepare('SELECT user FROM users WHERE id = ?');
-$statement->bind_param('i', $id);
-$result = $statement->execute();
+$stmt = $mysqli->prepare("SELECT * FROM users WHERE name = ?");
+$stmt->bind_param("s", $name);
+$stmt->execute(); /* you can get all results and display them using $stmt */
+$stmt->close();

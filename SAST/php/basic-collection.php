@@ -1,1 +1,2 @@
-$stmt = $mysqli->prepare('INSERT INTO collection (id, name, description) VALUES (?, ?, ?)');\n\t\t\t$stmt->bind_param('sss', $id, $name, $description);\n\t\t\t$stmt->execute();\n\t\t\t$stmt->close();
+10	$mysqli->prepare("INSERT INTO test(id, label) VALUES (?, ?)");
+

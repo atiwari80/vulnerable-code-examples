@@ -1,1 +1,0 @@
-8: search_filter = "(objectClass=user)(uid=%s)" &% (username)\n9:     search_result = ldap_connection.search_s("ldap://ldap.example.com", ldap.SLSCOPE_SUBTREE, search_filter)\n

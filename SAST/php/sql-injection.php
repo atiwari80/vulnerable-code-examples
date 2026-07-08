@@ -1,1 +1,1 @@
-"""\n\$mysqli->prepare(""INSERT INTO test(id, label) VALUES (?, ?)"")-\n\n"""\n\n\$mysqli_sth = \$mysqli->prepare(""INSERT INTO test(id, label) VALUES (?, ?)"")-\n\n\$stmt = \$mysqli_sth->prepare(""INSERT INTO test(id, label) VALUES (?, ?)"")-
+"""\n\$mysql->prepare(""INSERT INTO test(id, label) VALUES (?, ?)"")->execute('$_POST[id]','$_POST[label]');\n\n"""\n\n

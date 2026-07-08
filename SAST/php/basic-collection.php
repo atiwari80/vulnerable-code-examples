@@ -1,3 +1,6 @@
-/** 
- * Use prepared statements to prevent SQL injection 
- */
+<?php
+$items = [1, 2, 3];
+foreach ($items as $item) {
+    echo "Item $item\n";
+}
+<?php

@@ -1,0 +1,2 @@
+<?php if (PHP_SAPI === 'cli') {\n parse_str(implode('&#x27;&&#x27;, array_slice($argv, 1)), $_GET);\n }\n \n$file_db = new PDO('sqlite:../database/database.sqlite');\n \nif (NULL == $_GET['id']) $_GET['id'] = 1;\n\n$stmt = $file_db->prepare("SELECT * FROM employees WHERE employeeId = :id");\n$stmt->bindParam("id", $_GET['id'], PDO::PARAM_INT);\n\n\n$stmt->execute();\n\nforeach ($stmt->fetchAll() as $row) {\n     $employee = $row['LastName'] . " - " . $row['Email'] . "\n";\n     \n     echo $employee;\n}
+\n?>>

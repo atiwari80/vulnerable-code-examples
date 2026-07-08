@@ -1,8 +1,5 @@
-<?php
-$items = [1, 2, 3];
-foreach ($items as $item) {
-    echo "Item $item\n";
-\n},\n\n\n\n\n\n\n\n\n// echo exec("ls -l");
-    // echo exec("cat /etc/passwd");
-\n\n\n\n\n\n\n\n\n\n\n\n\n// echo exec("ls -l");
-\n\n<?php
+            $stmt = $mysqli->prepare('INSERT INTO collection (id, name, description) VALUES (?, ?, ?)');
+            $stmt->bind_param('sss', $id, $name, $description);
+            $stmt->execute();
+            $stmt->close();
+        
